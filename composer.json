@@ -1,0 +1,36 @@
+{
+  "name": "bahas-tech/laravel-size-based-rotation-logging",
+  "description": "Laravel Size-based Rotation Logging",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "PT Bahas Technology Solution",
+      "email": "admin@bahas.tech"
+    }
+  ],
+  "require": {
+    "php": "^7.4|^8.0|^8.2",
+    "illuminate/log": "^10",
+    "illuminate/support": "^10",
+    "monolog/monolog": "^3.7",
+    "symfony/process": "^6.4"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "BahasTech\\SizeBasedRotationLogging\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "BahasTech\\SizeBasedRotationLogging\\ServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
