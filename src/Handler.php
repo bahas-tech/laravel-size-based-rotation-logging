@@ -15,13 +15,13 @@ class Handler
             if ($handler instanceof StreamHandler) {
                 $handler->pushProcessor(function ($record) use ($handler) {
                     $file = $handler->getUrl();
-                    $thresholdInMb = config('bt-rotation-logging.size_threshold_in_mb') * 1024 * 1024;
+                    $thresholdInMb = config('bt-rotation-logging.size_threshold_in_mb', 500) * 1024 * 1024;
 
                     if (file_exists($file) && filesize($file) >= $thresholdInMb) {
                         $this->rotateAndCompress($file);
                     }
 
-                    $this->cleanupOldLogs(dirname($file), config('bt-rotation-logging.size_threshold_in_mb'));
+                    $this->cleanupOldLogs(dirname($file), config('bt-rotation-logging.keep_logs_in_days', 3));
 
                     return $record;
                 });
